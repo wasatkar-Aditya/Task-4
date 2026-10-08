@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartForm — Advanced Registration & User Management</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Toast Notification Container -->
+    <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <span class="brand-mark">S</span>
+                <div class="brand-text">
+                    <h1>SmartForm</h1>
+                    <p>Complex Form Validation &bull; Dynamic DOM &bull; Client-Side Routing</p>
+                </div>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link" data-route="home">Home</a></li>
+                <li><a href="#register" class="nav-link" data-route="register">Register</a></li>
+                <li><a href="#users" class="nav-link" data-route="users">Users</a></li>
+                <li><a href="#about" class="nav-link" data-route="about">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main-container">
+        <!-- ==================== HOME PAGE ==================== -->
+        <section id="home" class="page-section" data-page="home">
+            <div class="hero">
+                <div class="hero-content">
+                    <span class="hero-badge">Internship Project</span>
+                    <h2 class="hero-heading">Build Better Forms with JavaScript</h2>
+                    <p class="hero-subtitle">Advanced validation, dynamic DOM manipulation and client-side routing in one project.</p>
+                    <a href="#register" class="btn btn-primary btn-lg">
+                        Start Registration
+                        <svg class="btn-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon icon-validation">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"></path><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+                    </div>
+                    <h3>Complex Validation</h3>
+                    <p>Strong password requirements, real-time email format checking and confirmation validation.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon icon-dom">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                    </div>
+                    <h3>Dynamic DOM</h3>
+                    <p>Real-time UI updates, user card generation and validation messages that respond instantly.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon icon-routing">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                    </div>
+                    <h3>Client-Side Routing</h3>
+                    <p>Navigate seamlessly between sections with hash-based routing — no page reloads needed.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== REGISTER PAGE ==================== -->
+        <section id="register" class="page-section" data-page="register">
+            <div class="page-header">
+                <h2>Create New Account</h2>
+                <p>Fill in the form below to register. All fields are validated in real time.</p>
+            </div>
+
+            <div class="form-wrapper">
+                <form id="registrationForm" class="form-card" novalidate>
+                    <!-- Full Name -->
+                    <div class="form-group" data-field="name">
+                        <label for="fullName" class="form-label">Full Name</label>
+                        <div class="input-wrapper">
+                            <span class="input-icon">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                            </span>
+                            <input type="text" id="fullName" name="fullName" class="form-input" placeholder="John Doe" autocomplete="name">
+                            <span class="input-status" data-status-icon></span>
+                        </div>
+                        <p class="field-error" data-error-msg></p>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="form-group" data-field="email">
+                        <label for="email" class="form-label">Email Address</label>
+                        <div class="input-wrapper">
+                            <span class="input-icon">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                            </span>
+                            <input type="email" id="email" name="email" class="form-input" placeholder="you@example.com" autocomplete="email">
+                            <span class="input-status" data-status-icon></span>
+                        </div>
+                        <p class="field-error" data-error-msg></p>
+                    </div>
+
+                    <!-- Password -->
+                    <div class="form-group" data-field="password">
+                        <label for="password" class="form-label">Password</label>
+                        <div class="input-wrapper">
+                            <span class="input-icon">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                            </span>
+                            <input type="password" id="password" name="password" class="form-input" placeholder="Enter a strong password" autocomplete="new-password">
+                            <button type="button" class="toggle-password" id="togglePassword" aria-label="Show password">
+                                <span class="toggle-text">Show</span>
+                            </button>
+                        </div>
+
+                        <!-- Password Strength -->
+                        <div class="password-strength">
+                            <div class="strength-bar" aria-hidden="true">
+                                <div class="strength-fill" id="strengthFill"></div>
+                            </div>
+                            <div class="strength-label">
+                                Strength: <span id="strengthText" class="strength-value">--</span>
+                            </div>
+                        </div>
+
+                        <!-- Password Requirements -->
+                        <ul class="password-reqs" id="passwordReqs">
+                            <li data-req="length"><span class="req-dot"></span> At least 8 characters</li>
+                            <li data-req="upper"><span class="req-dot"></span> One uppercase letter</li>
+                            <li data-req="lower"><span class="req-dot"></span> One lowercase letter</li>
+                            <li data-req="number"><span class="req-dot"></span> One number</li>
+                            <li data-req="special"><span class="req-dot"></span> One special character</li>
+                        </ul>
+                        <p class="field-error" data-error-msg></p>
+                    </div>
+
+                    <!-- Confirm Password -->
+                    <div class="form-group" data-field="confirm">
+                        <label for="confirmPassword" class="form-label">Confirm Password</label>
+                        <div class="input-wrapper">
+                            <span class="input-icon">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"></path><path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9c2.39 0 4.68.94 6.36 2.64"></path></svg>
+                            </span>
+                            <input type="password" id="confirmPassword" name="confirmPassword" class="form-input" placeholder="Confirm your password" autocomplete="new-password">
+                            <span class="input-status" data-status-icon></span>
+                        </div>
+                        <p class="field-error" data-error-msg></p>
+                    </div>
+
+                    <!-- Submit -->
+                    <button type="submit" class="btn btn-primary btn-block btn-lg">
+                        Register Account
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <!-- ==================== USERS PAGE ==================== -->
+        <section id="users" class="page-section" data-page="users">
+            <div class="page-header users-header">
+                <div>
+                    <h2>User Dashboard</h2>
+                    <p>Manage all registered accounts.</p>
+                </div>
+                <div class="user-stats">
+                    <span class="stats-label">Total Users</span>
+                    <span class="stats-value" id="userCount">0</span>
+                </div>
+            </div>
+
+            <!-- Users Grid -->
+            <div id="usersContainer" class="users-grid"></div>
+
+            <!-- Empty State (injected dynamically) -->
+            <div id="emptyState" class="empty-state hidden">
+                <div class="empty-icon">
+                    <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                </div>
+                <h3>No users registered yet.</h3>
+                <p>Create your first account to see it here.</p>
+                <a href="#register" class="btn btn-primary">Register User</a>
+            </div>
+        </section>
+
+        <!-- ==================== ABOUT PAGE ==================== -->
+        <section id="about" class="page-section" data-page="about">
+            <div class="page-header">
+                <h2>About SmartForm</h2>
+                <p>Project overview, objectives and technologies.</p>
+            </div>
+
+            <div class="about-grid">
+                <div class="about-card">
+                    <div class="about-card-header">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                        <h3>Project Objective</h3>
+                    </div>
+                    <p>This internship project demonstrates a professional implementation of advanced frontend concepts without relying on frameworks. Every interaction is hand-crafted using standard Web APIs.</p>
+                    <ul class="about-list">
+                        <li>Complex client-side form validation with password strength indicators</li>
+                        <li>Dynamic DOM manipulation for user cards and feedback messages</li>
+                        <li>Hash-based client-side routing with browser history support</li>
+                        <li>Persistent data storage using Browser LocalStorage</li>
+                        <li>Fully responsive UI with accessible components</li>
+                    </ul>
+                </div>
+
+                <div class="about-card">
+                    <div class="about-card-header">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                        <h3>Technologies Used</h3>
+                    </div>
+                    <div class="tech-grid">
+                        <div class="tech-item">
+                            <span class="tech-badge tech-html">5</span>
+                            <span>HTML5</span>
+                        </div>
+                        <div class="tech-item">
+                            <span class="tech-badge tech-css">3</span>
+                            <span>CSS3</span>
+                        </div>
+                        <div class="tech-item">
+                            <span class="tech-badge tech-js">JS</span>
+                            <span>JavaScript ES6+</span>
+                        </div>
+                        <div class="tech-item">
+                            <span class="tech-badge tech-store">LS</span>
+                            <span>LocalStorage</span>
+                        </div>
+                        <div class="tech-item">
+                            <span class="tech-badge tech-dom">DOM</span>
+                            <span>DOM API</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2026 SmartForm. Built for Internship Task 4.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
